@@ -5,9 +5,14 @@
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script>
             $(document).ready(function () {
+                // Set focus on the text-box on page load
+                $("#text-box").focus();
+                
+                // Your existing click event handler
                 $(".fa-reply").on("click", function () {
                     // Toggle the visibility of the closest text box
                     $(this).closest('.comment-box').find('.reply-text-box').toggle();
+                    $(".reply-text-box-input").focus();
                 });
             });
         </script>
@@ -60,9 +65,9 @@
                                     </h6>
                                     <span>{{ message.time }}</span>
                                     <i class="fa fa-reply"></i>
-                                    <i class="fa fa-heart"></i>
+                                    <a href={% url "like" message.id "message" %}> <i class="fa fa-heart">  {{ message.likes }}</i></a>
                                 </div>
-                                <div class="comment-content">{{ message.text }}</div>
+                                <div class="comment-content" id="m{{ message.id }}">{{ message.text }}</div>
                                 {% comment %} Reply Hidden Box {% endcomment %}
                                 <div class="reply-text-box" style="display: none;">
                                     <form action="{% url "send_reply" %}" method="post">
@@ -96,9 +101,9 @@
                                             <a href="">AnonymousUser #{{ reply.author.uid }}</a>
                                         </h6>
                                         <span>{{ reply.time }}</span>
-                                        <i class="fa fa-heart"></i>
+                                        <a href={% url "like" reply.id "reply" %}> <i class="fa fa-heart">  {{ reply.likes }}</i></a>
                                     </div>
-                                    <div class="comment-content">{{ reply.text }}</div>
+                                    <div class="comment-content" id="r{{ reply.id }}">{{ reply.text }}</div>
                                 </div>
                             </li>
                         </ul>
@@ -112,7 +117,8 @@
             <div class= "message-elements">
                 <form action="{% url "send_message" %}" method="post">
                     {% csrf_token %}
-                    <input class="text-box"
+                    <input id="text-box"
+                           class="text-box"
                            type="text"
                            placeholder="Send your message"
                            name="message">

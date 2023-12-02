@@ -21,7 +21,7 @@ def send_message(request):
         user = User.objects.create(
             uid=uid,
             gender=random.choice(["male", "female"]),
-            name="lkdlkj",
+            name="anon",
         )
 
     text = request.POST["message"]
@@ -41,7 +41,7 @@ def send_reply(request):
         user = User.objects.create(
             uid=uid,
             gender=random.choice(["male", "female"]),
-            name="lkdlkj",
+            name="anon",
         )
 
     text = request.POST["reply"]
@@ -52,4 +52,17 @@ def send_reply(request):
         reply.text = text
         reply.save()
 
-    return redirect(reverse("homepage") + "#bottom")
+    return redirect(reverse("homepage") + f"#m{id}")
+
+
+def like(request, message_id, type):
+    if type == "message":
+        message = Message.objects.get(id=message_id)
+        message.likes += 1
+        message.save()
+
+    else:
+        reply = Reply.objects.get(id=message_id)
+        reply.likes += 1
+        reply.save()
+    return redirect("homepage")
