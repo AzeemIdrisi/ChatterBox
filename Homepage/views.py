@@ -6,6 +6,9 @@ from .models import User, Message, Reply
 
 # Create your views here.
 def homepage(request):
+    if not request.session.session_key:
+        request.session.create()
+
     messages = Message.objects.all().order_by("time")
     context = {
         "messages": messages,
@@ -14,6 +17,8 @@ def homepage(request):
 
 
 def send_message(request):
+    if not request.session.session_key:
+        request.session.create()
     uid = str(request.session.session_key)[0:3]
     try:
         user = User.objects.get(uid=uid)
