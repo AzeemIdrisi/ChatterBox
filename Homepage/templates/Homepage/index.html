@@ -47,7 +47,7 @@
                             <div class="comment-box">
                                 <div class="comment-head">
                                     <h6 class="comment-name by-author">
-                                        <a href="http://creaticode.com/blog">AnonymousUser #{{ message.author.uid }}</a>
+                                        <a href="">AnonymousUser #{{ message.author.uid }}</a>
                                     </h6>
                                     <span>{{ message.time }}</span>
                                     <i class="fa fa-reply"></i>
@@ -57,6 +57,32 @@
                             </div>
                         </div>
                     </li>
+                    {% for reply in message.reply_set.all %}
+                        <ul class="comments-list reply-list">
+                            <li>
+                                <!-- Avatar -->
+                                <div class="comment-avatar">
+                                    {% if reply.author.gender == 'male' %}
+                                        <div class="uid-text-male-reply">#{{ reply.author.uid }}</div>
+                                    {% else %}
+                                        <div class="uid-text-female-reply">#{{ reply.author.uid }}</div>
+                                    {% endif %}
+                                </div>
+                                <!-- Contenedor del Comentario -->
+                                <div class="comment-box">
+                                    <div class="comment-head">
+                                        <h6 class="comment-name">
+                                            <a href="">AnonymousUser #{{ reply.author.uid }}</a>
+                                        </h6>
+                                        <span>{{ reply.time }}</span>
+                                        <i class="fa fa-reply"></i>
+                                        <i class="fa fa-heart"></i>
+                                    </div>
+                                    <div class="comment-content">{{ reply.text }}</div>
+                                </div>
+                            </li>
+                        </ul>
+                    {% endfor %}
                 {% endfor %}
                 {% comment %} {% endfor %} {% endcomment %}
             </ul>

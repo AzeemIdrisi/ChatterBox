@@ -24,7 +24,7 @@ ul {
 
 body {
   background: #dee1e3;
-  padding: 150px 0;
+  padding: 10rem 0;
 }
 
 /** ====================
@@ -261,7 +261,7 @@ h1 a {
 .comment-box .comment-name.by-author a {
   color: #03658c;
 }
-.comment-box .comment-name.by-author:after {
+/* .comment-box .comment-name.by-author:after {
   content: "autor";
   background: #03658c;
   color: #fff;
@@ -272,7 +272,7 @@ h1 a {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-}
+} */
 
 /** =====================
 * Responsive
@@ -359,5 +359,19 @@ h1 a {
   font-size: 20px;
 }
 .uid-text-female {
+  background: #ff17b2;
+}
+.uid-text-male-reply,
+.uid-text-female-reply {
+  font-weight: bolder;
+  color: white;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #17bdff;
+  font-size: 15px;
+}
+.uid-text-female-reply {
   background: #ff17b2;
 }
