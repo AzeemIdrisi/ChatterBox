@@ -18,7 +18,6 @@ def send_message(request):
     try:
         user = User.objects.get(uid=uid)
     except User.DoesNotExist:
-        print("\n\nHello")
         user = User.objects.create(
             uid=uid,
             gender=random.choice(["male", "female"]),
