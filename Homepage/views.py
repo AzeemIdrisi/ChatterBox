@@ -14,7 +14,7 @@ def homepage(request):
 
 
 def send_message(request):
-    uid = str(request.session.session_key)[:2]
+    uid = str(request.session.session_key)[0:3]
     try:
         user = User.objects.get(uid=uid)
     except User.DoesNotExist:
