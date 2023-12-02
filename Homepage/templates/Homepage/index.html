@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IPEC ChatterBox</title>
+    </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static "Homepage/styles.css" %}">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+        <header>
+            <nav class="navbar">
+                <h1>
+                    IPEC ChatterBox <a href="#sign-in">Sign-in</a>
+                </h1>
+            </nav>
+            <p>Chat freely without revealing your identity</p>
+        </header>
+        <div class="comments-container">
+            <ul id="comments-list" class="comments-list">
+                <li>
+                    <div class="comment-main-level">
+                        <!-- Avatar -->
+                        <div class="comment-avatar">
+                            <img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg"
+                                 alt="">
+                        </div>
+                        <!-- Contenedor del Comentario -->
+                        <div class="comment-box">
+                            <div class="comment-head">
+                                <h6 class="comment-name by-author">
+                                    <a href="http://creaticode.com/blog">AnonymousUser #212</a>
+                                </h6>
+                                <span>hace 20 minutos</span>
+                                <i class="fa fa-reply"></i>
+                                <i class="fa fa-heart"></i>
+                            </div>
+                            <div class="comment-content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Respuestas de los comentarios -->
+                    <ul class="comments-list reply-list">
+                        <li>
+                            <!-- Avatar -->
+                            <div class="comment-avatar">
+                                <img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg"
+                                     alt="">
+                            </div>
+                            <!-- Contenedor del Comentario -->
+                            <div class="comment-box">
+                                <div class="comment-head">
+                                    <h6 class="comment-name">
+                                        <a href="http://creaticode.com/blog">AnonymousUser #45</a>
+                                    </h6>
+                                    <span>hace 10 minutos</span>
+                                    <i class="fa fa-reply"></i>
+                                    <i class="fa fa-heart"></i>
+                                </div>
+                                <div class="comment-content">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <!-- Avatar -->
+                            <div class="comment-avatar">
+                                <img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg"
+                                     alt="">
+                            </div>
+                            <!-- Contenedor del Comentario -->
+                            <div class="comment-box">
+                                <div class="comment-head">
+                                    <h6 class="comment-name by-author">
+                                        <a href="http://creaticode.com/blog">AnonymousUser #212</a>
+                                    </h6>
+                                    <span>hace 10 minutos</span>
+                                    <i class="fa fa-reply"></i>
+                                    <i class="fa fa-heart"></i>
+                                </div>
+                                <div class="comment-content">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="comment-main-level">
+                        <!-- Avatar -->
+                        <div class="comment-avatar">
+                            <img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg"
+                                 alt="">
+                        </div>
+                        <!-- Contenedor del Comentario -->
+                        <div class="comment-box">
+                            <div class="comment-head">
+                                <h6 class="comment-name">
+                                    <a href="http://creaticode.com/blog">AnonymousUser #69</a>
+                                </h6>
+                                <span>hace 10 minutos</span>
+                                <i class="fa fa-reply"></i>
+                                <i class="fa fa-heart"></i>
+                            </div>
+                            <div class="comment-content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="send-message">
+            <div class= "message-elements">
+                <form action="">
+                    <input class="text-box"
+                           type="text"
+                           placeholder="Send your message"
+                           name="text-box"
+                           id="">
+                    <button type="submit">Post</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
