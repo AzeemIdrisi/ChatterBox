@@ -22,109 +22,52 @@
             </nav>
             <p>Chat freely without revealing your identity</p>
         </header>
+        <a href="#bottom">
+            <div class="scrolltoBottom">
+                <i class="fa fa-chevron-down"></i>
+            </div>
+        </a>
         <div class="comments-container">
             <ul id="comments-list" class="comments-list">
-                <li>
-                    <div class="comment-main-level">
-                        <!-- Avatar -->
-                        <div class="comment-avatar">
-                            <img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg"
-                                 alt="">
-                        </div>
-                        <!-- Contenedor del Comentario -->
-                        <div class="comment-box">
-                            <div class="comment-head">
-                                <h6 class="comment-name by-author">
-                                    <a href="http://creaticode.com/blog">AnonymousUser #212</a>
-                                </h6>
-                                <span>hace 20 minutos</span>
-                                <i class="fa fa-reply"></i>
-                                <i class="fa fa-heart"></i>
-                            </div>
-                            <div class="comment-content">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Respuestas de los comentarios -->
-                    <ul class="comments-list reply-list">
-                        <li>
+                {% comment %} {% for user in users %} {% endcomment %}
+                {% for message in messages %}
+                    <li>
+                        <div class="comment-main-level">
                             <!-- Avatar -->
                             <div class="comment-avatar">
-                                <img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg"
-                                     alt="">
-                            </div>
-                            <!-- Contenedor del Comentario -->
-                            <div class="comment-box">
-                                <div class="comment-head">
-                                    <h6 class="comment-name">
-                                        <a href="http://creaticode.com/blog">AnonymousUser #45</a>
-                                    </h6>
-                                    <span>hace 10 minutos</span>
-                                    <i class="fa fa-reply"></i>
-                                    <i class="fa fa-heart"></i>
-                                </div>
-                                <div class="comment-content">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <!-- Avatar -->
-                            <div class="comment-avatar">
-                                <img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg"
-                                     alt="">
+                                {% if message.author.gender == 'male' %}
+                                    <div class="uid-text-male">#{{ message.author.uid }}</div>
+                                {% else %}
+                                    <div class="uid-text-female">#{{ message.author.uid }}</div>
+                                {% endif %}
                             </div>
                             <!-- Contenedor del Comentario -->
                             <div class="comment-box">
                                 <div class="comment-head">
                                     <h6 class="comment-name by-author">
-                                        <a href="http://creaticode.com/blog">AnonymousUser #212</a>
+                                        <a href="http://creaticode.com/blog">AnonymousUser #{{ message.author.uid }}</a>
                                     </h6>
-                                    <span>hace 10 minutos</span>
+                                    <span>{{ message.time }}</span>
                                     <i class="fa fa-reply"></i>
                                     <i class="fa fa-heart"></i>
                                 </div>
-                                <div class="comment-content">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="comment-main-level">
-                        <!-- Avatar -->
-                        <div class="comment-avatar">
-                            <img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg"
-                                 alt="">
-                        </div>
-                        <!-- Contenedor del Comentario -->
-                        <div class="comment-box">
-                            <div class="comment-head">
-                                <h6 class="comment-name">
-                                    <a href="http://creaticode.com/blog">AnonymousUser #69</a>
-                                </h6>
-                                <span>hace 10 minutos</span>
-                                <i class="fa fa-reply"></i>
-                                <i class="fa fa-heart"></i>
-                            </div>
-                            <div class="comment-content">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                                <div class="comment-content">{{ message.text }}</div>
                             </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
+                {% endfor %}
+                {% comment %} {% endfor %} {% endcomment %}
             </ul>
         </div>
+        <div id="bottom"></div>
         <div class="send-message">
             <div class= "message-elements">
-                <form action="">
+                <form action="{% url "send_message" %}" method="post">
+                    {% csrf_token %}
                     <input class="text-box"
                            type="text"
                            placeholder="Send your message"
-                           name="text-box"
-                           id="">
+                           name="message">
                     <button type="submit">Post</button>
                 </form>
             </div>
