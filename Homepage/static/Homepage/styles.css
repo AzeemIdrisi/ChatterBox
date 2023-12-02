@@ -309,7 +309,8 @@ h1 a {
   justify-content: center;
 }
 
-.text-box {
+.text-box,
+.reply-text-box {
   font-size: large;
   width: 400px;
   padding: 10px;
@@ -374,4 +375,24 @@ h1 a {
 }
 .uid-text-female-reply {
   background: #ff17b2;
+}
+
+.reply-text-box-input {
+  font-size: medium;
+  width: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 15px;
+}
+
+.reply-text-box button {
+  font-weight: 500;
+  font-size: medium;
+  cursor: pointer;
+  padding: 10px;
+  background-color: rgb(0, 210, 17);
+  color: white;
+  border-radius: 15px;
+  border: 0;
 }

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 import random
-from .models import User, Message
+from .models import User, Message, Reply
 
 
 # Create your views here.
@@ -23,12 +23,33 @@ def send_message(request):
             gender=random.choice(["male", "female"]),
             name="lkdlkj",
         )
-        # user.save()
 
     text = request.POST["message"]
     if len(text) > 0:
         message = Message.objects.create(author=user)
         message.text = text
         message.save()
+
+    return redirect(reverse("homepage") + "#bottom")
+
+
+def send_reply(request):
+    uid = str(request.session.session_key)[0:3]
+    try:
+        user = User.objects.get(uid=uid)
+    except User.DoesNotExist:
+        user = User.objects.create(
+            uid=uid,
+            gender=random.choice(["male", "female"]),
+            name="lkdlkj",
+        )
+
+    text = request.POST["reply"]
+    id = request.POST["original_message"]
+    if len(text) > 0:
+        message = Message.objects.get(id=id)
+        reply = Reply.objects.create(author=user, original_message=message)
+        reply.text = text
+        reply.save()
 
     return redirect(reverse("homepage") + "#bottom")

@@ -2,6 +2,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $(".fa-reply").on("click", function () {
+                    // Toggle the visibility of the closest text box
+                    $(this).closest('.comment-box').find('.reply-text-box').toggle();
+                });
+            });
+        </script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>IPEC ChatterBox</title>
@@ -54,6 +63,18 @@
                                     <i class="fa fa-heart"></i>
                                 </div>
                                 <div class="comment-content">{{ message.text }}</div>
+                                {% comment %} Reply Hidden Box {% endcomment %}
+                                <div class="reply-text-box" style="display: none;">
+                                    <form action="{% url "send_reply" %}" method="post">
+                                        {% csrf_token %}
+                                        <input class="reply-text-box-input"
+                                               type="text"
+                                               placeholder="Reply to this message"
+                                               name="reply">
+                                        <input type="hidden" name="original_message" value="{{ message.id }}">
+                                        <button type="submit">Reply</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </li>
@@ -75,7 +96,6 @@
                                             <a href="">AnonymousUser #{{ reply.author.uid }}</a>
                                         </h6>
                                         <span>{{ reply.time }}</span>
-                                        <i class="fa fa-reply"></i>
                                         <i class="fa fa-heart"></i>
                                     </div>
                                     <div class="comment-content">{{ reply.text }}</div>
