@@ -38,11 +38,6 @@
             <p>Chat freely without revealing your identity</p>
             <!-- Add other header content as needed -->
         </header>
-        <a href="#bottom">
-            <div class="scrolltoBottom">
-                <i class="fa fa-chevron-down"></i>
-            </div>
-        </a>
         <div class="comments-container">
             <ul id="comments-list" class="comments-list">
                 {% comment %} {% for user in users %} {% endcomment %}
@@ -112,7 +107,7 @@
                 {% comment %} {% endfor %} {% endcomment %}
             </ul>
         </div>
-        <div id="bottom"></div>
+        <div id="home"></div>
         <div class="send-message">
             <div class= "message-elements">
                 <form action="{% url "send_message" %}" method="post">
@@ -124,6 +119,11 @@
                            name="message">
                     <button type="submit">Post</button>
                 </form>
+                <a href="#home">
+                    <div class="scrolltoBottom">
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                </a>
             </div>
         </div>
     </body>

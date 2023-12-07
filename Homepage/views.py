@@ -35,7 +35,7 @@ def send_message(request):
         message.text = text
         message.save()
 
-    return redirect(reverse("homepage") + "#bottom")
+    return redirect(reverse("homepage") + "#home")
 
 
 def send_reply(request):

@@ -23,6 +23,7 @@ ul {
 }
 
 body {
+  width: 100vw;
   background: #dee1e3;
   padding: 10rem 0;
 }
@@ -319,16 +320,16 @@ h1 a {
 .scrolltoBottom {
   font-weight: 500;
   font-size: large;
-  position: fixed;
-  right: 0;
+  /* position: fixed; */
+  /* right: 0;
   bottom: 0;
-  z-index: 999;
+  z-index: 999; */
   padding: 10px 20px;
   color: black;
   width: fit-content;
   background-color: white;
   border-radius: 15px;
-  margin: 15px;
+  margin: 0 10px;
 }
 
 .uid-text-male,
