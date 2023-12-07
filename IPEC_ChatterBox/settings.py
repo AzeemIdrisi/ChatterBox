@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-)zbtj=jnqer$l$te=*f_-v$**v&h)0jf!i(x%%_tzm%gk6-+b_"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*", "ipecchat.pythonanywhere.com"]
 
