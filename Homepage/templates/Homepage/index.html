@@ -61,7 +61,7 @@
                             <div class="comment-box">
                                 <div class="comment-head">
                                     <h6 class="comment-name by-author">
-                                        <a href="">AnonymousUser #{{ message.author.uid }}</a>
+                                        <a href="">Anonymous User #{{ message.author.uid }}</a>
                                     </h6>
                                     <span>{{ message.time }}</span>
                                     <i class="fa fa-reply"></i>
@@ -98,7 +98,7 @@
                                 <div class="comment-box">
                                     <div class="comment-head">
                                         <h6 class="comment-name">
-                                            <a href="">AnonymousUser #{{ reply.author.uid }}</a>
+                                            <a href="">Anonymous User #{{ reply.author.uid }}</a>
                                         </h6>
                                         <span>{{ reply.time }}</span>
                                         <a href={% url "like" reply.id "reply" %}> <i class="fa fa-heart">  {{ reply.likes }}</i></a>
