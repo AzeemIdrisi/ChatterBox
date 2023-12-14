@@ -4,16 +4,21 @@ import random
 from .models import User, Message, Reply
 
 
-# Create your views here.
-def homepage(request):
-    if not request.session.session_key:
-        request.session.create()
-
+def index(request):
     messages = Message.objects.all().order_by("time")
     context = {
         "messages": messages,
     }
     return render(request, "Homepage/index.html", context)
+
+
+# Create your views here.
+def homepage(request):
+    if not request.session.session_key:
+        request.session.create()
+
+    return redirect(reverse("index") + "#home")
+    # return render(request, "Homepage/index.html", context)
 
 
 def send_message(request):
@@ -35,7 +40,7 @@ def send_message(request):
         message.text = text
         message.save()
 
-    return redirect(reverse("homepage") + "#home")
+    return redirect(reverse("index") + "#home")
 
 
 def send_reply(request):
@@ -57,7 +62,7 @@ def send_reply(request):
         reply.text = text
         reply.save()
 
-    return redirect(reverse("homepage") + f"#m{id}")
+    return redirect(reverse("index") + f"#m{id}")
 
 
 def like(request, message_id, type):
@@ -65,9 +70,10 @@ def like(request, message_id, type):
         message = Message.objects.get(id=message_id)
         message.likes += 1
         message.save()
-
+        id = f"#m{message_id}"
     else:
         reply = Reply.objects.get(id=message_id)
         reply.likes += 1
         reply.save()
-    return redirect("homepage")
+        id = f"#r{message_id}"
+    return redirect(reverse("index") + f"{id}")
