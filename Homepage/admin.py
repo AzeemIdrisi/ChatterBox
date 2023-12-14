@@ -12,7 +12,7 @@ class UserAdmin(admin.ModelAdmin):
     ]
 
     def message_count(self, obj):
-        return obj.message_set.count()
+        return obj.message_set.count() + obj.reply_set.count()
 
     def last_message_time(self, obj):
         last_message = obj.message_set.last()
