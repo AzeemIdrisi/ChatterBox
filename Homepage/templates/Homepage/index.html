@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="icon" href={% static "Homepage/icon.png" %}>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script>
             $(document).ready(function () {
@@ -19,20 +20,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>IPEC ChatterBox</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="{% static "Homepage/styles.css" %}">
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
-          rel="stylesheet">
-    <link rel="stylesheet" href="{% static "Homepage/styles.css" %}">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <body>
         <header class="fixed-header">
             <nav class="navbar">
+                <img class="icon" src={% static "Homepage/icon.png" %} alt="">
                 <h1>
                     IPEC ChatterBox
-                    {% comment %} IPEC ChatterBox <a href="#sign-in">Sign-in</a> {% endcomment %}
                 </h1>
             </nav>
             <p>Chat freely without revealing your identity</p>

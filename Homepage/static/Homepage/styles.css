@@ -57,7 +57,7 @@ header p {
   justify-content: center;
 }
 h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   color: #283035;
   font-weight: 700;
 }
@@ -401,4 +401,9 @@ h1 a {
   .reply-text-box {
     width: 70%;
   }
+}
+
+.icon {
+  max-width: 70px;
+  margin: 0 10px;
 }
