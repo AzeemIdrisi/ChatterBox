@@ -33,14 +33,14 @@ body {
 =======================*/
 .comments-container {
   margin: 60px auto 15px;
-  width: 768px;
+  width: 60%;
 }
 .fixed-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-
+  border-bottom: 2px solid #283035;
   background-color: #dee1e3;
   padding: 10px;
   text-align: center;
